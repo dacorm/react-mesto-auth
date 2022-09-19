@@ -18,7 +18,7 @@ export async function register(password, email) {
             email
         })
     })
-    return await handleResponse(data);
+    return handleResponse(data);
 }
 
 export async function login(password, email) {
@@ -32,7 +32,7 @@ export async function login(password, email) {
             email
         })
     })
-    return await handleResponse(data);
+    return handleResponse(data);
 }
 
 export async function auth(token) {
@@ -43,5 +43,5 @@ export async function auth(token) {
             "Authorization" : `Bearer ${token}`
         }
     })
-    return await handleResponse(data);
+    return handleResponse(data);
 }
