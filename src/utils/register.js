@@ -1,3 +1,12 @@
+const handleResponse = async (data) => {
+    const res = await data.json()
+    if (data.ok) {
+        return res
+    } else {
+        return Promise.reject(res);
+    }
+}
+
 export async function register(password, email) {
     const data = await fetch('https://auth.nomoreparties.co/signup', {
         method: "POST",
@@ -9,12 +18,7 @@ export async function register(password, email) {
             email
         })
     })
-    const res = await data.json()
-    if (data.ok) {
-        return res
-    } else {
-        return Promise.reject(res);
-    }
+    return await handleResponse(data);
 }
 
 export async function login(password, email) {
@@ -28,12 +32,7 @@ export async function login(password, email) {
             email
         })
     })
-    const res = await data.json();
-    if (data.ok) {
-        return res
-    } else {
-        return Promise.reject(res)
-    }
+    return await handleResponse(data);
 }
 
 export async function auth(token) {
@@ -44,10 +43,5 @@ export async function auth(token) {
             "Authorization" : `Bearer ${token}`
         }
     })
-    const res = await data.json();
-    if (data.ok) {
-        return res
-    } else {
-        return Promise.reject(res)
-    }
+    return await handleResponse(data);
 }

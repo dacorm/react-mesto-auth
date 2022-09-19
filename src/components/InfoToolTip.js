@@ -28,7 +28,7 @@ const InfoToolTip = ({ onClose, isOpen, isOk, error }) => {
                 </>)}
                 {!isOk && (<>
                     <img src={bad} alt="Что-то пошло не так иконка" className='popup__icon'/>
-                    <p className='popup__text'>{error ?? 'Что-то пошло не так!\n' +
+                    <p className='popup__text'>{error.message ?? 'Что-то пошло не так!\n' +
                     'Попробуйте ещё раз.'}</p>
                 </>)}
             </div>

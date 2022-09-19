@@ -185,7 +185,6 @@ function App() {
 
     return (
         <CurrentUserContext.Provider value={currentUser}>
-            <div>
                 <div className="page">
                     <Header email={userEmail} logout={logout} />
                     <Routes>
@@ -207,6 +206,7 @@ function App() {
                                                            isOk={isOk}
                                                            onClose={closeAllPopups}
                                                            error={error}
+                                                           isLoggedIn={isLoggedIn}
                                         />}/>
                         <Route path='/sign-in'
                                         element={<Login handleLogin={handleLogin}
@@ -229,7 +229,6 @@ function App() {
                     </PopupWithForm>
                     <EditAvatarPopup isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateAvatar={handleAvatarUpdate} />
                 </div>
-            </div>
         </CurrentUserContext.Provider>
     );
 }

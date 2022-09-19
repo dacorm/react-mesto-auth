@@ -23,11 +23,11 @@ const Login = ({ handleLogin, isLoggedIn, isOk, isOpen, onClose, error }) => {
         if (isValid) {
             handleLogin(values.password, values.email);
         }
-        resetForm();
     }
 
     useEffect(() => {
         if (isLoggedIn) navigate('/')
+        resetForm()
     }, [isLoggedIn])
 
 

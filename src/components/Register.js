@@ -3,7 +3,7 @@ import {Link, useNavigate} from "react-router-dom";
 import InfoToolTip from "./InfoToolTip";
 import {useFormAndValidation} from "../hooks/useFormAndValidation";
 
-const Register = ({ handleRegister, isOk, isOpen, onClose, error }) => {
+const Register = ({ handleRegister, isOk, isOpen, onClose, error, isLoggedIn }) => {
     const navigate = useNavigate();
     const {values, handleChange, errors, isValid, setValues, resetForm} = useFormAndValidation({
         email: '',
@@ -15,9 +15,11 @@ const Register = ({ handleRegister, isOk, isOpen, onClose, error }) => {
         if (isValid) {
             handleRegister(values.password, values.email);
         }
-        resetForm();
     }
 
+    useEffect(() => {
+        if (isLoggedIn) resetForm();
+    }, [isLoggedIn])
 
     return (
         <div>
