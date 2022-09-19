@@ -12,6 +12,7 @@
 
     color: #000000;
     padding: 14px 0;
+    transition: .3s ease;
 }
 
 .register__button:hover {
